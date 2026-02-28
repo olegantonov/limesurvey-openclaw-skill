@@ -1,11 +1,32 @@
 ---
 name: limesurvey
-description: Automate LimeSurvey operations via RemoteControl 2 API. Use when: (1) managing surveys, questions, groups, or participants, (2) exporting responses or statistics, (3) sending invitations or reminders, (4) importing surveys or questions, (5) batch operations on survey data. Supports JSON-RPC API with full CRUD operations for surveys, participants, responses, questions, and groups.
+description: "Automate LimeSurvey operations via RemoteControl 2 API. Use when: (1) managing surveys, questions, groups, or participants, (2) exporting responses or statistics, (3) sending invitations or reminders, (4) importing surveys or questions, (5) batch operations on survey data. Supports JSON-RPC API with full CRUD operations for surveys, participants, responses, questions, and groups. **REQUIRED ENVIRONMENT VARIABLES:** LIMESURVEY_URL (your RemoteControl endpoint), LIMESURVEY_USER, LIMESURVEY_PASSWORD (use least-privilege service account, never full admin credentials)."
 ---
 
 # LimeSurvey RemoteControl 2 API
 
 Automate LimeSurvey survey management via the RemoteControl 2 JSON-RPC API.
+
+## Prerequisites
+
+**Required Environment Variables:**
+- `LIMESURVEY_URL` — Full URL to RemoteControl endpoint (e.g., `https://survey.example.com/index.php/admin/remotecontrol`)
+- `LIMESURVEY_USER` — Service account username
+- `LIMESURVEY_PASSWORD` — Service account password
+
+**Security Recommendations:**
+1. **Use a least-privilege service account**, not your full admin credentials
+2. Create a dedicated LimeSurvey user with minimal required permissions (survey management only, no system administration)
+3. Use a strong, unique password; rotate periodically after initial use
+4. Never commit credentials to version control — use environment variables or secure vaults only
+5. Verify the RemoteControl API is accessible only from trusted networks
+
+**Setup:**
+```bash
+export LIMESURVEY_URL='https://survey.example.com/index.php/admin/remotecontrol'
+export LIMESURVEY_USER='service_account_username'
+export LIMESURVEY_PASSWORD='secure_service_password'
+```
 
 ## Quick Start
 
