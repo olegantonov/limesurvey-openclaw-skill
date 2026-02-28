@@ -1,6 +1,18 @@
 ---
 name: limesurvey
 description: "Automate LimeSurvey operations via RemoteControl 2 API. Use when: (1) managing surveys, questions, groups, or participants, (2) exporting responses or statistics, (3) sending invitations or reminders, (4) importing surveys or questions, (5) batch operations on survey data. Supports JSON-RPC API with full CRUD operations for surveys, participants, responses, questions, and groups. **REQUIRED ENVIRONMENT VARIABLES:** LIMESURVEY_URL (your RemoteControl endpoint), LIMESURVEY_USER, LIMESURVEY_PASSWORD (use least-privilege service account, never full admin credentials)."
+metadata:
+  openclaw:
+    requires:
+      env:
+        - LIMESURVEY_URL
+        - LIMESURVEY_USER
+        - LIMESURVEY_PASSWORD
+    credentials:
+      - name: limesurvey-service-account
+        description: "LimeSurvey RemoteControl service account (least-privilege recommended)"
+        env: LIMESURVEY_USER,LIMESURVEY_PASSWORD
+    homepage: "https://github.com/olegantonov/limesurvey-openclaw-skill"
 ---
 
 # LimeSurvey RemoteControl 2 API
